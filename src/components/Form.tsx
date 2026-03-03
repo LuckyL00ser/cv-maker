@@ -1,3 +1,4 @@
+import AchievementSection from "./Form/AchievementSection"
 import EducationSection from "./Form/EducationSection"
 import ExperienceSection from "./Form/ExperienceSection"
 import HeaderSection from "./Form/HeaderSection"
@@ -11,6 +12,7 @@ export default function Form() {
             <ExperienceSection />
             <EducationSection />
             <SkillsSection />
+            <AchievementSection />
             <HobbiesSection />
         </div>
     )

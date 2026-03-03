@@ -1,0 +1,9 @@
+h1, h2 {
+    color: rgb(41, 97, 169);
+}
+h3, h4, h5 {
+    color: rgb(58, 58, 233);
+}
+.accent {
+    color:rgb(58, 58, 233);
+}

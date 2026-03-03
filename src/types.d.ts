@@ -29,10 +29,19 @@ interface ISkills {
 interface IHobbies {
     hobbies: string[]
 }
+interface IAchievementItem {
+    title: string
+    description: string
+    location: string | null
+    date: Date
+    link: string | null
+}
+
 interface ICvData {
     header: IHeader
     experience: IExperienceItem[]
     education: IEducationItem[]
     skills: ISkills
     hobbies: IHobbies | null
+    achievements: IAchievementItem[] | null
 }

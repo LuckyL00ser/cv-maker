@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
-import { exampleCvData } from '../exampleCv'
+import { persist, createJSONStorage } from 'zustand/middleware'
+import { cvData } from '../exampleCv2'
 
 interface CvState {
   cvData: ICvData
@@ -9,20 +9,34 @@ interface CvState {
   setEducation: (education: IEducationItem[]) => void
   setSkills: (skills: ISkills) => void
   setHobbies: (hobbies: IHobbies | null) => void
+  setAchievements: (achievements: IAchievementItem[] | null) => void
   setCvData: (cvData: ICvData) => void
   moveExperienceItem: (index: number, direction: 'up' | 'down') => void
   moveEducationItem: (index: number, direction: 'up' | 'down') => void
 }
 
+function dateReviver(key: string, value: any) {
+  // Detect ISO date strings and convert back to Date
+  if (typeof value === 'string') {
+    const isoDateRegex =
+      /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z$/
+    if (isoDateRegex.test(value)) {
+      return new Date(value)
+    }
+  }
+  return value
+}
+
 export const useCvStore = create<CvState>()(
   persist(
     (set) => ({
-      cvData: exampleCvData,
+      cvData: cvData,
       setHeader: (header) => set((state) => ({ cvData: { ...state.cvData, header } })),
       setExperience: (experience) => set((state) => ({ cvData: { ...state.cvData, experience } })),
       setEducation: (education) => set((state) => ({ cvData: { ...state.cvData, education } })),
       setSkills: (skills) => set((state) => ({ cvData: { ...state.cvData, skills } })),
       setHobbies: (hobbies) => set((state) => ({ cvData: { ...state.cvData, hobbies } })),
+      setAchievements: (achievements) => set((state) => ({ cvData: { ...state.cvData, achievements } })),
       setCvData: (cvData) => set({ cvData }),
       moveExperienceItem: (index, direction) =>
         set((state) => {
@@ -47,6 +61,9 @@ export const useCvStore = create<CvState>()(
     }),
     {
       name: 'cv-maker-storage',
+      storage: createJSONStorage(() => localStorage, {
+        reviver: dateReviver,
+      }),
     }
   )
 )

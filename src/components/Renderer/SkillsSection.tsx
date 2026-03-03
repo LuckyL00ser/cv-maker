@@ -1,3 +1,4 @@
+import {PencilLine} from 'lucide-react'
 interface SkillsSectionProps {
     skills: ISkills;
 }
@@ -7,7 +8,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
 
     return (
         <section>
-            <h2 className="text-lg font-bold uppercase border-b border-gray-300 mb-3 pb-1">Skills</h2>
+            <h2 className="text-lg font-bold uppercase border-b border-gray-300 mb-3 pb-1 flex gap-2 items-center"><PencilLine />Skills</h2>
             <div className="flex flex-col gap-4">
                 {Object.entries(skills.skillGroup).map(([group, items]) => (
                     <div key={group}>

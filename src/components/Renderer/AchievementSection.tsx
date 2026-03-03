@@ -4,7 +4,7 @@ interface EducationSectionProps {
     education: IEducationItem[];
 }
 
-export default function EducationSection({ education }: EducationSectionProps) {
+export default function AchievementSection({ education }: EducationSectionProps) {
     if (education.length === 0) return null;
 
     return (

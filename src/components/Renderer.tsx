@@ -1,4 +1,5 @@
 import { useCvStore } from "../store/useCvStore"
+import AchievementSection from "./Renderer/AchievementSection";
 import EducationSection from "./Renderer/EducationSection";
 import ExperienceSection from "./Renderer/ExperienceSection";
 import HeaderSection from "./Renderer/HeaderSection";
@@ -18,6 +19,7 @@ export default function Renderer() {
                 <div className="col-span-8 flex flex-col gap-6">
                     <ExperienceSection experience={experience} />
                     <EducationSection education={education} />
+                    <AchievementSection education={education} />
                 </div>
 
                 {/* Sidebar Column (Skills & Hobbies) */}

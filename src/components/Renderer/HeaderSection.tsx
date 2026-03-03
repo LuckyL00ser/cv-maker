@@ -1,3 +1,5 @@
+import { ContactDetails } from "../ContactDetails";
+
 interface HeaderSectionProps {
     header: IHeader;
 }
@@ -7,14 +9,9 @@ export default function HeaderSection({ header }: HeaderSectionProps) {
         <>
             <header className="border-b-2 border-gray-800 pb-4 mb-6">
                 <h1 className="text-3xl font-bold uppercase tracking-wider">{header.name} {header.surname}</h1>
-                <p className="text-xl text-gray-600 mt-1">{header.professionalTitle}</p>
+                <h2 className="text-xl text-gray-600 mt-1">{header.professionalTitle}</h2>
                 <div className="flex flex-wrap gap-4 mt-3 text-sm text-gray-600">
-                    {Object.entries(header.contactDetails).map(([key, value]) => (
-                        <div key={key} className="flex items-center gap-1">
-                            <span className="font-semibold capitalize">{key}:</span>
-                            <span>{value}</span>
-                        </div>
-                    ))}
+                    <ContactDetails details={header.contactDetails} />
                 </div>
             </header>
             {
