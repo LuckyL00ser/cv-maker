@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { cvData } from '../exampleCv2'
+import { exampleCvData } from '../exampleCv'
 
 interface CvState {
   cvData: ICvData
@@ -30,7 +30,7 @@ function dateReviver(key: string, value: any) {
 export const useCvStore = create<CvState>()(
   persist(
     (set) => ({
-      cvData: cvData,
+      cvData: exampleCvData,
       setHeader: (header) => set((state) => ({ cvData: { ...state.cvData, header } })),
       setExperience: (experience) => set((state) => ({ cvData: { ...state.cvData, experience } })),
       setEducation: (education) => set((state) => ({ cvData: { ...state.cvData, education } })),
