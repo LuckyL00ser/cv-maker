@@ -1,6 +1,5 @@
 import { useCvStore } from "../../store/useCvStore"
 import AchievementItem from "./AchievementItem"
-import EducationItem from "./EducationItem"
 
 export default function AchievementSection() {
     const { cvData, setAchievements } = useCvStore()
@@ -23,7 +22,7 @@ export default function AchievementSection() {
         }])
     }
 
-    const handleRemoveEducation = (index: number) => {
+    const handleRemoveAchievement = (index: number) => {
         onChange(achievements.filter((_, i) => i !== index))
     }
 
@@ -39,7 +38,7 @@ export default function AchievementSection() {
                         <div className="flex justify-end mb-2 gap-2">
                             <div className="w-px h-4 bg-gray-200 mx-1"></div>
                             <button
-                                onClick={() => handleRemoveEducation(index)}
+                                onClick={() => handleRemoveAchievement(index)}
                                 className="text-xs text-gray-400 hover:text-red-500 font-medium flex items-center gap-1 transition-colors"
                                 title="Remove education"
                             >

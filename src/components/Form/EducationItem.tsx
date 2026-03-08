@@ -37,22 +37,22 @@ export default function EducationItem(props: EducationItemProps) {
                     onChange={(value) => props.onChange({ ...props.value, locaton: value || null })}
                     placeholder="e.g. New York, NY"
                 />
-                <div className="grid grid-cols-2 gap-2">
-                    <Record
-                        section="education"
-                        label="Start Date"
-                        type="date"
-                        value={startDate.toISOString().substring(0, 10)}
-                        onChange={(value) => props.onChange({ ...props.value, startDate: new Date(value) })}
-                    />
-                    <Record
-                        section="education"
-                        label="End Date"
-                        type="date"
-                        value={endDate ? endDate.toISOString().substring(0, 10) : ''}
-                        onChange={(value) => props.onChange({ ...props.value, endDate: new Date(value) })}
-                    />
-                </div>
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+                <Record
+                    section="education"
+                    label="Start Date"
+                    type="date"
+                    value={startDate.toISOString().substring(0, 10)}
+                    onChange={(value) => props.onChange({ ...props.value, startDate: new Date(value) })}
+                />
+                <Record
+                    section="education"
+                    label="End Date"
+                    type="date"
+                    value={endDate ? endDate.toISOString().substring(0, 10) : ''}
+                    onChange={(value) => props.onChange({ ...props.value, endDate: new Date(value) })}
+                />
             </div>
             <Record
                 section="education"

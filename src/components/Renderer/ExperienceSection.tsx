@@ -2,17 +2,20 @@ import {ScrollText} from 'lucide-react'
 
 interface ExperienceSectionProps {
     experience: IExperienceItem[];
+    sectionId?: string;
+    itemRange?: [number, number]; // [start, end) — if omitted, render all
 }
 
-export default function ExperienceSection({ experience }: ExperienceSectionProps) {
-    if (experience.length === 0) return null;
+export default function ExperienceSection({ experience, sectionId, itemRange }: ExperienceSectionProps) {
+    const items = itemRange ? experience.slice(itemRange[0], itemRange[1]) : experience;
+    if (items.length === 0) return null;
 
     return (
-        <section>
+        <section data-section-id={sectionId}>
             <h2 className="text-lg font-bold uppercase border-b border-gray-300 mb-3 pb-1 flex gap-2 items-center"><ScrollText />Work Experience</h2>
             <div className="flex flex-col gap-4">
-                {experience.map((item, index) => (
-                    <div key={index}>
+                {items.map((item, index) => (
+                    <div key={index} className="atomic-item">
                         <div className="flex justify-between items-baseline">
                             <h3 className="font-bold text-md mr-3">{item.position}</h3>
                             <span className="text-xs text-gray-500">
@@ -36,4 +39,5 @@ export default function ExperienceSection({ experience }: ExperienceSectionProps
             </div>
         </section>
     )
+
 }

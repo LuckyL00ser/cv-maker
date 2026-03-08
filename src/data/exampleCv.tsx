@@ -39,5 +39,6 @@ export const exampleCvData: ICvData = {
     },
     hobbies: {
       hobbies: ['Reading', 'Hiking', 'Coding']
-    }
+    },
+    achievements: []
   }

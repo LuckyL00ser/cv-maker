@@ -11,9 +11,7 @@ export default function EditorLayout({ form, renderer }: EditorLayoutProps) {
             {form}
         </div>
         <div className="flex-1 h-full overflow-y-auto p-8 flex justify-center bg-gray-100">
-            <div className="scale-[0.8] origin-top transform-gpu">
-                {renderer}
-            </div>
+            {renderer}
         </div>
     </div>
     )

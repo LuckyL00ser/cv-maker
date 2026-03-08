@@ -7,3 +7,13 @@ h3, h4, h5 {
 .accent {
     color:rgb(58, 58, 233);
 }
+.print-pages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media print {
+    .print-pages-container {
+        gap: 0;
+    }
+}

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-import { exampleCvData } from '../exampleCv'
+import { exampleCvData } from '../data/exampleCv'
 
 interface CvState {
   cvData: ICvData
@@ -15,7 +15,7 @@ interface CvState {
   moveEducationItem: (index: number, direction: 'up' | 'down') => void
 }
 
-function dateReviver(key: string, value: any) {
+function dateReviver(_: string, value: any) {
   // Detect ISO date strings and convert back to Date
   if (typeof value === 'string') {
     const isoDateRegex =

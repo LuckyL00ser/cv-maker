@@ -45,3 +45,8 @@ interface ICvData {
     hobbies: IHobbies | null
     achievements: IAchievementItem[] | null
 }
+
+interface RendererBlock {
+    container: React.ReactNode
+    blocks: React.ReactNode[]
+}

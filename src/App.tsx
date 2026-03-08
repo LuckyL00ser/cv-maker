@@ -56,8 +56,8 @@ function App() {
       <EditorLayout 
         form={<Form />} 
         renderer={
-            <div ref={componentRef}>
-                <Renderer />
+           <div ref={componentRef}>
+             <Renderer />
             </div>
         }
       ></EditorLayout>

@@ -37,15 +37,13 @@ export default function AchievementItem(props: EducationItemProps) {
                     onChange={(value) => props.onChange({ ...props.value, location: value || null })}
                     placeholder="e.g. New York, NY"
                 />
-                <div className="grid grid-cols-2 gap-2">
-                    <Record
-                        section="achievement"
-                        label="Start Date"
-                        type="date"
-                        value={date?.toISOString().substring(0, 10)}
-                        onChange={(value) => props.onChange({ ...props.value, date: new Date(value) })}
-                    />
-                </div>
+                <Record
+                    section="achievement"
+                    label="Start Date"
+                    type="date"
+                    value={date?.toISOString().substring(0, 10)}
+                    onChange={(value) => props.onChange({ ...props.value, date: new Date(value) })}
+                />
             </div>
             <Record
                 section="achievement"
